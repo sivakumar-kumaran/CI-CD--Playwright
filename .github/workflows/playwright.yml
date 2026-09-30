@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Daily Tests
 
 on:
   push:
@@ -9,14 +9,14 @@ on:
     branches:
       - main
 
+  schedule:
+    - cron: '30 17 * * *'
+
 jobs:
-
   test:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Chromium
+      - name: Install Playwright
         run: npx playwright install --with-deps chromium
 
       - name: Run Playwright tests

@@ -20,3 +20,8 @@ test('Factorial of 6',async () => {
 test("Factorial of -1",async()=>{
     await expect(factorial(-1)).toBe('Negative numbers not allowed');
 });
+
+test("Factorial of 3",async()=>{
+    await expect(factorial(3)).toBe(6);
+    console.log("Factorial")
+});
